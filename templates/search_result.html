@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search results
+{% endblock %}
+
+{% block main %}
+        <div class="mb-3">
+            <ul>
+                {% for city in list %}
+                    <li><a href="{{ url_for('city', name=city) }}" style="color: black">{{ city }}</a></li>
+                {% endfor %}
+              </ul>
+
+        </div>
+{% endblock %}

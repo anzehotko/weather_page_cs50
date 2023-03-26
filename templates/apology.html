@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block main %}
+    <!-- https://memegen.link/ -->
+    <img alt="{{ top }}" class="border img-fluid" src="http://memegen.link/custom/Sorry/{{ bottom | urlencode }}.jpg?alt=https://img.freepik.com/free-photo/man-holding-notes_1368-3719.jpg?w=740&t=st=1676393280~exp=1676393880~hmac=ba416f3b9a45e3898a2d6a732636ef0d88e2102a2592e66f6381ec82c8a77511&width=400" title="{{ top }}">
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <style>
+        .first-two-words {
+        color: black;
+        }
+
+        .third-word {
+        color: #537fbe;
+        font-weight: bold;
+        }
+    </style>
+
+    <form action="/" method="post">
+        <div class="mb-3">
+            <input class="custom-input" autocomplete="off" autofocus class="form-control mx-auto w-auto" id="city" name="city" placeholder="City" type="text">
+        </div>
+
+        {% if session["user_id"] %}
+            <button class="btn btn-primary" type="submit" style="background-color: rgba(199, 200, 201, 0.5); border-color: black">
+                <span class="first-two-words">Get extended</span> <span class="third-word"> weather</span>
+                </button>
+        {% else %}
+        <button class="btn btn-primary" type="submit" style="background-color: rgba(199, 200, 201, 0.5); border-color: black; color: black;">Get basic weather</button>
+        {% endif %}
+    </form>
+{% endblock %}

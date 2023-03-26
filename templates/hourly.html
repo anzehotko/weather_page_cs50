@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search results
+{% endblock %}
+
+{% block main %}
+
+    <style>
+        h4 {
+        text-align: left;
+        }
+    </style>
+
+        <div class="mb-3">
+            <h4>3-Hour forecast for {{ name1 }} on {{ day }}</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            {% for keys, values in hourly.items() %}
+                                <th>{{ keys }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% for daytime, info in hourly.items() %}
+                                <td>{{ info[0] }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for daytime, info in hourly.items() %}
+                                <td><img src="{{ info[1] }}"></td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+
+        </div>
+{% endblock %}

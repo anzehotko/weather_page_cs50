@@ -1,0 +1,83 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+nav .navbar-brand{
+    /* float: left!important; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.custom-input {
+    width: 200px;
+    height: 50px;
+    font-size:18px;
+}
+
+th {
+    padding: 10px; /* adds 10px of space between the content and the border of the td element */
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+
+td {
+    background-color: rgba(220, 220, 220, 0.6);
+    padding: 10px; /* adds 10px of space between the content and the border of the td element */
+  }
+
+
+
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url("img/25503.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+
+
+.btn-group {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.navbar {
+    background-color: rgba(199, 200, 201, 0.5);
+  }
+
+.btn-primary {
+    background-color: rgba(199, 200, 201, 0.5);
+    border-color: black;
+    color: black;
+}
+
+main.container {
+    max-width: 90vw;
+  }

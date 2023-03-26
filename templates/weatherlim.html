@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Weather information
+{% endblock %}
+
+{% block main %}
+
+    <style>
+        h2 {
+        text-align: left;
+        }
+        h3 {
+        text-align: left;
+        }
+        h4 {
+        text-align: left;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+        <div class="mb-3">
+            <h2>Weather information</h2>
+            <h3>{{ city_inf["city"] }}</h3>
+            <h4>Basic information</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th></th>
+                            <th>Temperature</th>
+                            <th>Feels like</th>
+                            <th>Minimum temperature</th>
+                            <th>Maximum temperature</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> {{ city_inf["description"] }}</td>
+                            <td><img src="{{ urli }}"></td>
+                            <td> {{ city_inf["temperature"] }}</td>
+                            <td> {{ city_inf["feelslike"] }}</td>
+                            <td> {{ city_inf["temp_min"] }}</td>
+                            <td> {{ city_inf["temp_max"] }}</td>
+
+
+                            </tr>
+                    </tbody>
+                </table>
+
+            <h4>Pressure & wind information</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pressure</th>
+                            <th>Humidity</th>
+                            <th>Wind speed</th>
+                            <th>Wind direction</th>
+                            <th>Visibility</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> {{ city_inf["pressure"] }}</td>
+                            <td> {{ city_inf["humidity"] }}</td>
+                            <td> {{ city_inf["wind_speed"] }}</td>
+                            <td> {{ city_inf["wind_dir"] }}</td>
+                            <td> {{ city_inf["visibility"] }}</td>
+                            </tr>
+                    </tbody>
+                </table>
+        </div>
+
+        <div id="basic-forecast">
+                {% if session["user_id"] %}
+                    <h4>5-day forecast</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                {% for day, info in forecast.items() %}
+                                    <th> Day </th>
+                                    <th> Min </th>
+                                    <th> Max </th>
+                                    <td>  </td>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                {% for day, info in forecast.items() %}
+                                    <td style="font-weight: bold;"> {{ day }} </td>
+                                    <td>{{ info[-1]["min_temp"] }}</td>
+                                    <td>{{ info[-1]["max_temp"] }}</td>
+                                    <td><img src="{{ info[-1]["icon_link"] }}"></td>
+                                {% endfor %}
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn-group" role="group">
+                        {% for day, info in forecast.items() %}
+                            <a href="{{ url_for('hourly', day=day) }}" style="color: black">View hourly</a>
+                        {% endfor %}
+                    </div>
+                    <form action="/add_favorites">
+                        <button class="btn btn-primary" type="submit">Add to favorites</button>
+                    </form>
+
+
+
+
+
+
+        </div>
+            {% endif %}
+
+
+{% endblock %}

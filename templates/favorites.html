@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My favorites
+{% endblock %}
+
+{% block main %}
+        <div class="mb-3">
+            <ul>
+                {% for city in favorites_list %}
+                    <li>
+                        <div style="display: table; width: 50%;">
+                            <a href="{{ url_for('city', name=city) }}" style="color: black; display: table-cell; width: 90%;">{{ city }}</a>
+                            <div style="width: 20px;"></div>
+                            <a href="{{ url_for('remove_favorites', name=city) }}" style="color: black; padding: 0.25em 0.5em; border-radius: 0.25em; display: table-cell; width: 10%; text-decoration: none; background-color: rgb(255,114,111);">Remove</a>
+                        </div>
+                    </li>
+
+                {% endfor %}
+              </ul>
+
+        </div>
+{% endblock %}
